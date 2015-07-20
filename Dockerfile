@@ -6,8 +6,8 @@
 # Date: 2015-01-18
 
 
-FROM geggo98/x11-vnc
-MAINTAINER Stefan Schwetschke "stefan@schwetschke.de"
+FROM sidirius/x11-vnc
+MAINTAINER Sven Hartmann <sid@sh87.net>
 
 # Installing depdencies
 RUN apt-get update -y && \
@@ -15,7 +15,7 @@ RUN apt-get update -y && \
 	apt-get clean
 
 # Installing calibre. This can take 5 minutes...
-ENV REFRESHED_CALIBRE_AT 2015-01-18
+ENV REFRESHED_CALIBRE_AT 2015-07-20
 RUN curl --silent --show-error  https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
 	| sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" \
 	2| grep -v -e '^Downloaded'
